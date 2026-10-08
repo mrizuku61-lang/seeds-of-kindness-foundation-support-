@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b3d2e">
+  <title>Seeds of Kindness Foundation</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7faf8;
+      color: #18342a;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b3d2e;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.18);
+    }
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 17px;
+    }
+    .brand img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: white;
+    }
+    .brand small {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #d9e9df;
+    }
+    .links {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+    }
+    .links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .links a:hover { color: #e4b94d; }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        linear-gradient(rgba(5, 52, 38, 0.78), rgba(5, 52, 38, 0.78)),
+        url("images/children.jpg") center/cover no-repeat;
+    }
+    .hero-content { max-width: 780px; color: white; }
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 640px;
+      margin: 0 auto 32px;
+      opacity: 0.95;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      margin: 6px;
+      border-radius: 50px;
+      background: #e4b94d;
+      color: #10291f;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: 0.25s;
+    }
+    .btn.white { background: white; }
+    .btn:hover { transform: translateY(-3px); }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+    .section-title h2 {
+      color: #0b3d2e;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+    .section-title p { color: #61736b; font-size: 16px; }
+
+    .about-card {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 28px rgba(23,75,50,0.08);
+      border: 1px solid #e3eee8;
+    }
+
+    .founder {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e0ebe5;
+    }
+    .founder strong {
+      display: block;
+      font-size: 18px;
+      color: #0b3d2e;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .programs { background: #eaf4ee; max-width: none; }
+    .programs-inner { max-width: 1100px; margin: auto; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 18px;
+      box-shadow: 0 7px 25px rgba(23,75,50,0.07);
+    }
+    .card .icon { font-size: 36px; margin-bottom: 14px; }
+    .card h3 { color: #0b3d2e; margin-bottom: 10px; font-size: 19px; }
+
+    .article-box {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(23,75,50,0.08);
+    }
+    .article-box img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+    .article-content { padding: 35px; }
+    .article-content h3 {
+      color: #0b3d2e;
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+
+    /* DONATE SECTION */
+    .donate-box {
+      background: #0b3d2e;
+      color: white;
+      border-radius: 24px;
+      padding: 55px 30px;
+      text-align: center;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+    }
+    .donate-box h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .every-donation {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #e4b94d;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+    .donate-box > p {
+      max-width: 620px;
+      margin: 0 auto 32px;
+      color: #e4f0e9;
+      font-size: 17px;
+    }
+
+    .signal-box {
+      background: white;
+      color: #0b3d2e;
+      border-radius: 18px;
+      padding: 28px 22px;
+      max-width: 420px;
+      margin: 0 auto 28px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .signal-box h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: #0b3d2e;
+    }
+    .signal-number {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin: 14px 0;
+      color: #0b3d2e;
+    }
+    .signal-box p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .donate-note {
+      font-size: 14px;
+      color: #d9e9df;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
+    .contact-card {
+      background: white;
+      padding: 28px;
+      border-radius: 16px;
+      border-left: 5px solid #e4b94d;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+    }
+    .contact-card h3 { color: #0b3d2e; margin-bottom: 10px; }
+
+    footer {
+      background: #06291f;
+      color: #dcebe4;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer strong { color: white; display: block; margin-bottom: 6px; }
+
+    @media (max-width: 760px) {
+      .links { display: none; }
+      nav { justify-content: center; }
+      .hero { min-height: 75vh; }
+      section { padding: 55px 18px; }
+      .hero h1 { font-size: 36px; }
+      .signal-number { font-size: 24px; }
+      .every-donation { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="brand">
+        <img src="images/logo.png" alt="Seeds of Kindness Foundation Logo">
+        <span>
+          SEEDS OF KINDNESS
+          <small>FOUNDATION</small>
+        </span>
+      </div>
+      <ul class="links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Planting Seeds of Kindness</h1>
+      <p>
+        Helping orphans and vulnerable children with food, education,
+        health care, and good clothing — because every child deserves
+        love, care, and hope.
+      </p>
+      <a href="#donate" class="btn">Donate Now</a>
+      <a href="#about" class="btn white">Learn More</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>Growing hope, one act of kindness at a time.</p>
+    </div>
+    <div class="about-card">
+      <p>
+        <strong>Seeds of Kindness Foundation</strong> is dedicated to supporting
+        vulnerable children and helping them build a brighter future.
+        We believe that small acts of kindness can create lasting change.
+      </p>
+      <br>
+      <p>
+        Our work focuses on providing food, education, health support,
+        and good clothing while creating an environment where children
+        feel valued, protected, and loved.
+      </p>
+
+      <div class="founder">
+        <strong>FOUNDER: MICHELLE D WHITE</strong>
+        <p>Leading with compassion and a deep commitment to every child’s future.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="programs" id="programs">
+    <div class="programs-inner">
+      <div class="section-title">
+        <h2>What We Do</h2>
+        <p>Every contribution helps us make a meaningful difference.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🍲</div>
+          <h3>Food Support</h3>
+          <p>Providing nourishing meals and essential food support for children in need.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📚</div>
+          <h3>Education</h3>
+          <p>Supporting children’s education and giving them opportunities to learn and grow.</p>
+        </div>
+        <div class="card">
+          <div class="icon">❤️</div>
+          <h3>Health Care</h3>
+          <p>Helping children access important health and wellbeing support.</p>
+        </div>
+        <div class="card">
+          <div class="icon">👕</div>
+          <h3>Good Clothing</h3>
+          <p>Providing clean, quality clothing so children can feel comfortable and confident.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="section-title">
+      <h2>Our Story</h2>
+      <p>A small act of kindness can change a child’s life.</p>
+    </div>
+    <div class="article-box">
+      <img src="images/children2.jpg" alt="Children of Seeds of Kindness Foundation">
+      <div class="article-content">
+        <h3>Every Child Deserves a Chance</h3>
+        <p>
+          At Seeds of Kindness Foundation, we believe that no child should go to bed hungry
+          or miss school because of poverty. Through the generosity of people like you,
+          we provide daily meals, school materials, health support, and clothing to
+          orphans and vulnerable children in our community.
+        </p>
+        <br>
+        <p>
+          Our work is simple but powerful: small acts of kindness that grow into
+          big changes in the lives of children. Together, we are planting seeds
+          that will grow into a brighter future.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section id="donate">
+    <div class="donate-box">
+      <h2>Make a Donation</h2>
+      <div class="every-donation">EVERY DONATION COUNTS</div>
+      <p>
+        Your support helps us provide food, education, health care, and clothing
+        to children who need it most. No gift is too small.
+      </p>
+
+      <div class="signal-box">
+        <h3>💬 Message the Manager on Signal</h3>
+        <div class="signal-number">+1 540 355 3393</div>
+        <p>Send a message to complete your donation securely</p>
+      </div>
+
+      <p class="donate-note">
+        For the safety of our donors and the children we serve, bank details are not displayed on this website.
+        Please contact our Manager directly on Signal and we will guide you through the next steps privately.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>We would love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>💬 Signal (Recommended)</h3>
+        <p>Message our Manager directly for donations and support.</p>
+        <p><strong>+1 540 355 3393</strong></p>
+      </div>
+      <div class="contact-card">
+        <h3>📧 Email</h3>
+        <p>mrizuku61@gmail.com</p>
+      </div>
+      <div class="contact-card">
+        <h3>📞 Phone</h3>
+        <p>+1 540 355 3393</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Seeds of Kindness Foundation</strong>
+    <p>Planting kindness. Growing hope. Changing lives.</p>
+    <p style="margin-top:12px; font-size:13px;">Founded by MICHELLE D WHITE</p>
+    <p style="margin-top:8px;">© 2026 Seeds of Kindness Foundation. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
